@@ -6,6 +6,7 @@ from flask import Flask, jsonify, render_template, request, abort, make_response
 from flask import Response
 import simplejson as json
 import json
+import ast
 app = Flask(__name__)
 
 @app.route('/search/<string:title>',methods=['GET','POST'])
@@ -24,8 +25,9 @@ def work(id) :
         cur = con.cursor()
         query = ("SELECT Details FROM cat_work WHERE Object_Id = %s")
         cur.execute(query,(id,))
-        for  Details in cur:
-                return Details
+        for Details in cur:
+		data = json.loads(Details[0])
+		return data["key"]
         cur.close()
         con.close()
 
