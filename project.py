@@ -1,18 +1,27 @@
 #!/usr/bin/python
 
-import  sys
 import mysql.connector
+import os,sys
+from flask import Flask, jsonify, render_template, request, abort, make_response
+from flask import Response
 import simplejson as json
-con = mysql.connector.connect(user='root',password='Venkat@123',host='127.0.0.1',database='project02')
-cur = con.cursor()
-query = ("SELECT Details FROM cat_work WHERE Details  LIKE '%Juv%'")
-cur.execute(query)
-for  Details in cur:
-	print Details
-	data = json.loads(Details)
-cur.close()
-con.close()
+import json
+app = Flask(__name__)
 
+@app.route('/search/<string:title>',methods=['GET','POST'])
+def work(title) :
+	con = mysql.connector.connect(user='root',password='Venkat@123',host='127.0.0.1',database='project02')
+	cur = con.cursor()
+	arg = (title)
+	query = ("SELECT Details FROM cat_work WHERE Details  LIKE %s")
+	cur.execute(query,("%" + title + "%",))
+	for  Details in cur:
+		return Details
+	cur.close()
+	con.close()
+	
+if __name__ == '__main__':
+    app.run(host="0.0.0.0",port="80")
 
 
 
