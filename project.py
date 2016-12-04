@@ -6,7 +6,7 @@ from flask import Flask, jsonify, render_template, request, abort, make_response
 from flask import Response
 import simplejson as json
 import json
-import ast
+import requests
 app = Flask(__name__)
 
 @app.route('/search/<string:title>',methods=['GET','POST'])
@@ -27,9 +27,14 @@ def work(id) :
         cur.execute(query,(id,))
         for Details in cur:
 		data = json.loads(Details[0])
-		return data["key"]
+		url = "https://openlibrary.org"+data["authors"][0]["author"]["key"] +".json"
+  		response=requests.get(url)
+  		result = json.loads(response.content)
+   		return  result["name"]
+
         cur.close()
         con.close()
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port="80")
