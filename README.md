@@ -1,4 +1,4 @@
-# Project-2
+# Project-02
 ####BOOKS WEBSERVICE <br />
 The URL for the website is http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com <br />
 The URL has two parts: <br />
@@ -8,7 +8,7 @@ We can also use the following links to view the above results: <br />
 http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/work/id <br />
 http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/search/word <br />
 Example outputs: <br />
-1. Type URL http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/work/OL11889791W/ <br />
+1. Type URL http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/work/OL11889791W <br />
 The output will be: <br />
 
 Details:
