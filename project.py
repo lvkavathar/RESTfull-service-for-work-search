@@ -23,6 +23,8 @@ def search(title) :
 	file = open("newfile1.txt", "w")
 	for  Details in cur:
                 file.write(Details[0].encode('utf8')+"<br>")
+		dat = json.loads(Details[0])
+		file.write("More Details:" + " " + "http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/work/" + dat["key"].replace("/works/","") + "<br><br>")
 	file.close()
         cur.close()
         con.close()        
