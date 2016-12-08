@@ -45,14 +45,16 @@ More Details: http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/work/OL13
 
 The one time script is  <br />
 
-##Creating database
+####Creating database
 mysql -u root -p /*password = toor */
 create database project02;
 use project02
 CREATE TABLE cat (Object_Id VARCHAR(20),Revision_no INT(11),Timestamp VARCHAR(30),Details JSON,title VARCHAR(500) SET utf8 COLLATE utf8_unicode_ci);
 
+After this, execute the python script file "storedata.py" which is present in this repository as
+storedata.py < cat-works.txt
+it will store the data from file to mysql 
 
-
-##taking sql dump
+#####taking sql dump
 mysqldump --databases project02 > project02_dump.sql -p /*password = toor */
 
