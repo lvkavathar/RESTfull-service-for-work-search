@@ -22,8 +22,7 @@ def search(title) :
 	
 	file = open("newfile1.txt", "w")
 	for  Details in cur:
-                file.write(Details[0].encode('utf8'))
-		print Details[0]
+                file.write(Details[0].encode('utf8')+"<br>")
 	file.close()
         cur.close()
         con.close()        
@@ -46,10 +45,11 @@ def work(id) :
 		url = "https://openlibrary.org"+data["authors"][0]["author"]["key"] +".json"
   		response=requests.get(url)
   		result = json.loads(response.content)
-		file.write(Details[0].encode('utf8')+ "<br>")
+		file.write("Details:" +"<br>")
+		file.write(Details[0].encode('utf8')+ "<br><br>")
 		objid = "Object Id:" + data["key"].replace("/works/","")
-		file.write(objid.encode('utf8') + "<br>")
-		file.write("Author:"+ url + result["name"].encode('utf8'))
+		file.write(objid.encode('utf8') + "<br><br>")
+		file.write("Author:"+ " " + result["name"].encode('utf8'))
 		file.close()
         cur.close()
         con.close()
