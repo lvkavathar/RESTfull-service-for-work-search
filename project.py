@@ -48,6 +48,7 @@ def work(id) :
 		file.write("Details:" +"<br>")
 		file.write(Details[0].encode('utf8')+ "<br><br>")
 		objid = "Object Id:" + data["key"].replace("/works/","")
+		file.write("TimeStamp:" + " " + data["last_modified"]["value"].encode('utf8')+"<br><br>")
 		file.write(objid.encode('utf8') + "<br><br>")
 		file.write("Author:"+ " " + result["name"].encode('utf8'))
 		file.close()
