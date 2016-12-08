@@ -43,7 +43,7 @@ More Details: http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/work/OL29
 {"key": "/works/OL13712239W", "type": {"key": "/type/work"}, "title": "Le propriétaire de cathédrale", "authors": [{"type": {"key": "/type/author_role"}, "author": {"key": "/authors/OL6562413A"}}], "created": {"type": "/type/datetime", "value": "2009-12-11T10:24:09.190860"}, "revision": 3, "subjects": ["Cathedrals", "Cathédrale de Chartres", "Cats", "Fiction", "Juvenile fiction"], "last_modified": {"type": "/type/datetime", "value": "2010-12-04T07:38:53.504813"}, "latest_revision": 3, "first_publish_date": "1988"}
 More Details: http://ec2-35-163-132-37.us-west-2.compute.amazonaws.com/work/OL13712239W
 
-The one time script is  <br />
+###The one time script is  <br />
 
 ####Creating database
 mysql -u root -p /*password = toor */
@@ -55,6 +55,6 @@ After this, execute the python script file "storedata.py" which is present in th
 storedata.py < cat-works.txt
 it will store the data from file to mysql 
 
-#####taking sql dump
+#####Taking sql dump
 mysqldump --databases project02 > project02_dump.sql -p /*password = toor */
 
